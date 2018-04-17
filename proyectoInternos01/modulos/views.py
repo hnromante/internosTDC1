@@ -2,6 +2,16 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Modulo, User
 from .serializers import ModuloSerializer, UsuarioSerializer
+
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+    IsAdminUser,
+    IsAuthenticatedOrReadOnly,
+
+    )
+
+
 # Create your views here.
 
 """
@@ -15,6 +25,7 @@ class ModuloView(viewsets.ModelViewSet):
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
+    permission_classes = [IsAuthenticated]
 
 def index(request):
     return render(request, 'index.html')
