@@ -25,5 +25,6 @@ urlpatterns = [
     path('',views.index, name='index'),
     # url(r'^.*', TemplateView.as_view(template_name='index.html'), name='inicio'),
     path('api/',include('modulos.urls')),
+    path('api/users/',include('modulos.api_accounts.urls')),
     
 ]
