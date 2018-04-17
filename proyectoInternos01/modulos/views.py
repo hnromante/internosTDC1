@@ -27,5 +27,6 @@ class UserView(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
     permission_classes = [IsAuthenticated]
 
+
 def index(request):
     return render(request, 'index.html')

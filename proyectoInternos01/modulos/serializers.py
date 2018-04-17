@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from .models import Modulo, User
 
-class UsuarioSerializer(serializers.ModelSerializer):
+class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email')
+        fields = ('id','username','email')
 
 
-class ModuloSerializer(serializers.ModelSerializer):
+class ModuloSerializer(serializers.HyperlinkedModelSerializer):
     usuario = UsuarioSerializer(many=True, read_only=True)
     class Meta:
         model = Modulo

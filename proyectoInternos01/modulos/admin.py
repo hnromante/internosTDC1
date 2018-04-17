@@ -10,7 +10,7 @@ class ModuloAdmin(admin.ModelAdmin):
     # list_filter	       = [  "nombre" , "estado", ]
     filter_horizontal = [ "usuario", ]
 
-    search_fields = ["nombre"]
+    # search_fields = ["nombre"]
     class Meta:
         model = Modulo
 

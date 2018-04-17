@@ -6,7 +6,10 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+<<<<<<< HEAD
+=======
 django-braces = "*"
+>>>>>>> 52ac84ca71773ee200ae07fe74f91d8931bd757c
 djangorestframework-jwt = "*"
 
 [dev-packages]
