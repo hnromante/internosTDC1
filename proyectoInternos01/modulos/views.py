@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Modulo
-from .serializers import ModuloSerializer
+from .models import Modulo, User
+from .serializers import ModuloSerializer, UsuarioSerializer
 # Create your views here.
 
 """
@@ -11,6 +11,10 @@ para GET, PUT, DELETE
 class ModuloView(viewsets.ModelViewSet):
     queryset = Modulo.objects.all()
     serializer_class = ModuloSerializer
+
+class UserView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UsuarioSerializer
 
 def index(request):
     return render(request, 'index.html')
