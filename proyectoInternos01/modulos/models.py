@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
+
 
 class Modulo(models.Model):
     usuario = models.ManyToManyField(User)
@@ -11,4 +12,5 @@ class Modulo(models.Model):
 
     def __str__(self):
         return self.nombre
+
 

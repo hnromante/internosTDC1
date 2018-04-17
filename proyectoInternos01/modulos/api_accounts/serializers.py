@@ -2,14 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-from rest_framework.serializers import (
-	EmailField,
-	CharField,
-	ModelSerializer, 
-	HyperlinkedIdentityField,
-	SerializerMethodField,
-	ValidationError,
-	)
+from rest_framework.serializers import (ModelSerializer, ValidationError, CharField	)
 
 
 class UserLoginSerializer(ModelSerializer):
@@ -22,7 +15,6 @@ class UserLoginSerializer(ModelSerializer):
 				'email',
 				'password',
 				'token',
-
 		]
 		extra_kwargs = {"password":
 							{"write_only": True}

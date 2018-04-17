@@ -16,5 +16,6 @@ class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
 
+
 def index(request):
     return render(request, 'index.html')
