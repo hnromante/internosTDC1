@@ -14,3 +14,4 @@ class ModuloSerializer(serializers.ModelSerializer):
         fields = ('id','usuario','url','nombre','subtitulo','descripcion','img')
 
 
+
