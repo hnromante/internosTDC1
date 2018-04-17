@@ -19,10 +19,12 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
 from modulos import views
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
+    url(r'^api/auth/token/', obtain_jwt_token),
     # url(r'^.*', TemplateView.as_view(template_name='index.html'), name='inicio'),
     path('api/',include('modulos.urls')),
     path('api/users/',include('modulos.api_accounts.urls')),
