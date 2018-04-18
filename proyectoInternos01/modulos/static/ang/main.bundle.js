@@ -267,12 +267,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2__ = __webpack_require__("./node_modules/angularfire2/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_database__ = __webpack_require__("./node_modules/angularfire2/database/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__ = __webpack_require__("./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -318,6 +322,8 @@ var AppModule = (function () {
                 // features
                 __WEBPACK_IMPORTED_MODULE_6__static__["a" /* StaticModule */],
                 __WEBPACK_IMPORTED_MODULE_5__settings__["c" /* SettingsModule */],
+                __WEBPACK_IMPORTED_MODULE_19__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_20__angular_common_http__["b" /* HttpClientModule */],
                 // app
                 __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */]
             ],
@@ -328,7 +334,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__app_static_dialog_add_add_component__["a" /* AddComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__static_dialog_delete_delete_component__["a" /* DeleteComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__app_static_dialog_edit_edit_component__["a" /* EditComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__static_dialog_loggin_loggin_component__["a" /* LogginComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__static_dialog_loggin_loggin_component__["a" /* LogginComponent */],
             ],
         })
     ], AppModule);
@@ -1352,7 +1358,7 @@ var SharedModule = (function () {
 /***/ "./src/app/static/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n\n        <mat-card [ngClass]=\"animateOnRouteEnter\">\n\n      <h1 >Abre una Cuenta</h1>\n      <h2>Comienza. ¡Es gratis!</h2>\n      <mat-divider></mat-divider>\n\n      \n      <form class=\"mat-dialog-content\"   #formControl=\"ngForm\">\n\n          \n            <div class=\"form\">\n            <mat-form-field color=\"primary\" >\n            <input matInput  #input placeholder=\"Nombre\"  name=\"name\" class=\"form-control\"  [(ngModel)]=\"name\"required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Apellidos\" [(ngModel)]=\"lastname\" name=\"lastname\"  >\n           \n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"email\"  name=\"email\" id=\"email\"  email required >\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage_email()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput type=\"password\" #input #message minlength=\"8\" maxlength=\"8\" class=\"form-control\" placeholder=\"Contraseña\"  [(ngModel)]=\"password\" name=\"password\" required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            <mat-hint align=\"end\">{{message.value.length}} / 8</mat-hint>\n            </mat-form-field>\n            </div>\n            <br>\n\n            <mat-card-subtitle class=\"center\">\n              Al hacer clic en unirte, aceptas las Condiciones de uso, la Política de privacidad y la Política de cookies de LinkedIn.\n            </mat-card-subtitle>\n           \n\n            <div mat-dialog-actions class=\"center\">\n\n\n            <a [ngClass]=\"animateOnRouteEnter\" \n               mat-raised-button color=\"primary\" class=\"size\" [type]=\"submit\" [disabled]=\"!formControl.valid\" >\n              Únete ahora\n              </a>\n            </div>\n\n           \n          </form>\n         \n\n\n\n        </mat-card>\n        </div>\n      \n    </div>\n  </div>\n\n\n \n    \n\n\n  \n\n"
+module.exports = "<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n\n        <mat-card [ngClass]=\"animateOnRouteEnter\">\n\n      <h1 >Abre una Cuenta</h1>\n      <h2>Comienza. ¡Es gratis!</h2>\n      <mat-divider></mat-divider>\n\n      \n      <form class=\"mat-dialog-content\"   #formControl=\"ngForm\">\n\n          \n            <div class=\"form\">\n            <mat-form-field color=\"primary\" >\n            <input matInput  #input placeholder=\"Nombre\"  name=\"username\" class=\"form-control\"  [(ngModel)]=\"data.username\"required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Nombre Completo\" [(ngModel)]=\"data.first_name\" name=\"first_name\"  >\n           \n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"data.email\"  name=\"email\" id=\"email\"  email required >\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage_email()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput type=\"password\" #input #message minlength=\"8\" maxlength=\"8\" class=\"form-control\" placeholder=\"Contraseña\"  [(ngModel)]=\"data.password\" name=\"password\" required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            <mat-hint align=\"end\">{{message.value.length}} / 8</mat-hint>\n            </mat-form-field>\n            </div>\n            <br>\n\n            <mat-card-subtitle class=\"center\">\n              Al hacer clic en unirte, aceptas las Condiciones de uso, la Política de privacidad y la Política de cookies de LinkedIn.\n            </mat-card-subtitle>\n           \n\n            <div mat-dialog-actions class=\"center\">\n\n\n            <a [ngClass]=\"animateOnRouteEnter\" \n               mat-raised-button color=\"primary\" class=\"size\" [type]=\"submit\" [disabled]=\"!formControl.valid\" (click)=\"confirmAdd(formControl)\">\n              Únete ahora\n              </a>\n            </div>\n\n           \n          </form>\n         \n\n\n\n        </mat-card>\n        </div>\n      \n    </div>\n  </div>\n\n\n \n    \n\n\n  \n\n"
 
 /***/ }),
 
@@ -1371,6 +1377,8 @@ module.exports = ".background {\n  padding: 100px 0;\n  position: relative; }\n 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_core__ = __webpack_require__("./src/app/core/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_models__ = __webpack_require__("./src/app/static/models/models.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_data_service__ = __webpack_require__("./src/app/static/services/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1383,8 +1391,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AboutComponent = (function () {
-    function AboutComponent() {
+    function AboutComponent(dataService, data) {
+        this.dataService = dataService;
+        this.data = data;
         this.animateOnRouteEnter = __WEBPACK_IMPORTED_MODULE_1__app_core__["a" /* ANIMATE_ON_ROUTE_ENTER */];
         this.pwdPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
         this.formControl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [
@@ -1406,13 +1418,24 @@ var AboutComponent = (function () {
             '';
     };
     AboutComponent.prototype.ngOnInit = function () { };
+    AboutComponent.prototype.confirmAdd = function (form, content) {
+        var _this = this;
+        if (form.value.id == null) {
+            this.dataService.postEmployee(form.value)
+                .subscribe(function (data) {
+                //this.resetForm(form);
+                _this.dataService.getEmployeeList();
+                //this.toastr.success('Nuevo registro agregado con éxito!',' Registro de empleados');
+            });
+        }
+    };
     AboutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'anms-about',
             template: __webpack_require__("./src/app/static/about/about.component.html"),
             styles: [__webpack_require__("./src/app/static/about/about.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__models_models__["b" /* User */]])
     ], AboutComponent);
     return AboutComponent;
 }());
@@ -2034,7 +2057,7 @@ var DataService = (function () {
     /** CRUD METHODS */
     DataService.prototype.getEmployeeList = function () {
         var _this = this;
-        this.http.get('https://djangular-rest.herokuapp.com/api/tickets/')
+        this.http.get('http://127.0.0.1:8000/api/usuarios/')
             .map(function (data) {
             return data.json();
         }).toPromise().then(function (x) {
@@ -2053,7 +2076,7 @@ var DataService = (function () {
         var body = JSON.stringify(emp);
         var headerOptions = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
         var requestOptions = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["e" /* RequestOptions */]({ method: __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestMethod */].Post, headers: headerOptions });
-        return this.http.post('https://djangular-rest.herokuapp.com/api/tickets/create/', body, requestOptions).map(function (x) { return x.json(); });
+        return this.http.post('http://127.0.0.1:8000/api/usuarios/registrar/', body, requestOptions).map(function (x) { return x.json(); });
     };
     // UPDATE, PUT METHOD
     DataService.prototype.putEmployee = function (id, emp) {
@@ -2178,12 +2201,13 @@ var StaticRoutingModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_routing_module__ = __webpack_require__("./src/app/static/static-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about_about_component__ = __webpack_require__("./src/app/static/about/about.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__features_features_component__ = __webpack_require__("./src/app/static/features/features.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material_select__ = __webpack_require__("./node_modules/@angular/material/esm5/select.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__static_services_data_service__ = __webpack_require__("./src/app/static/services/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__static_dialog_add_add_component__ = __webpack_require__("./src/app/static/dialog/add/add.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__dialog_loggin_loggin_component__ = __webpack_require__("./src/app/static/dialog/loggin/loggin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__static_models_models__ = __webpack_require__("./src/app/static/models/models.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material_select__ = __webpack_require__("./node_modules/@angular/material/esm5/select.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__static_services_data_service__ = __webpack_require__("./src/app/static/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__static_dialog_add_add_component__ = __webpack_require__("./src/app/static/dialog/add/add.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__dialog_loggin_loggin_component__ = __webpack_require__("./src/app/static/dialog/loggin/loggin.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2201,14 +2225,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var StaticModule = (function () {
     function StaticModule() {
     }
     StaticModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__app_shared__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_2__static_routing_module__["a" /* StaticRoutingModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["c" /* HttpModule */]],
-            declarations: [__WEBPACK_IMPORTED_MODULE_3__about_about_component__["a" /* AboutComponent */], __WEBPACK_IMPORTED_MODULE_4__features_features_component__["a" /* FeaturesComponent */], __WEBPACK_IMPORTED_MODULE_9__static_dialog_add_add_component__["a" /* AddComponent */], __WEBPACK_IMPORTED_MODULE_10__dialog_loggin_loggin_component__["a" /* LogginComponent */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__static_services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["c" /* HttpModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__app_shared__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_2__static_routing_module__["a" /* StaticRoutingModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["f" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["b" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_7__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__about_about_component__["a" /* AboutComponent */], __WEBPACK_IMPORTED_MODULE_4__features_features_component__["a" /* FeaturesComponent */], __WEBPACK_IMPORTED_MODULE_10__static_dialog_add_add_component__["a" /* AddComponent */], __WEBPACK_IMPORTED_MODULE_11__dialog_loggin_loggin_component__["a" /* LogginComponent */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_9__static_services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__static_models_models__["b" /* User */],]
         })
     ], StaticModule);
     return StaticModule;

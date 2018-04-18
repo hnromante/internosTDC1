@@ -25,7 +25,7 @@ class UsuarioCrearSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = [
-            'first_name',
+            'username',
             'last_name',
             'email',
             'password',
