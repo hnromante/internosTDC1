@@ -13,5 +13,6 @@ class ModuloAdmin(admin.ModelAdmin):
     # search_fields = ["nombre"]
     class Meta:
         model = Modulo
+        
 
 admin.site.register(Modulo, ModuloAdmin)
