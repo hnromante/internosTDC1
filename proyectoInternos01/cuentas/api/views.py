@@ -1,12 +1,7 @@
 from cuentas.models import User
 from rest_framework import viewsets
-<<<<<<< HEAD
-from rest_framework import views
-from .serializers import UsuarioSerializer
-=======
 from .serializers import UsuarioSerializer, UsuarioCrearSerializer, UsuarioListarSerializer, UsuarioDetalleSerializer
 from rest_framework.permissions import AllowAny
->>>>>>> 19bdee956422a982e2bd38a0cb00a97fa0ae1cb4
 
 
 from rest_framework.generics import (
