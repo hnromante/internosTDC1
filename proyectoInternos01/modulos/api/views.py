@@ -4,12 +4,15 @@ from .serializers import (
     ModuloSerializer, 
     ModuloListSerializer,
     ModuloCrearActualizarSerializer,
-    ModuloDetalleSerializer
+    ModuloDetalleSerializer,
+    ModuloCrearActualizarSerializer
 )
 from rest_framework.generics import (
     ListAPIView,
     CreateAPIView,
-    RetrieveAPIView
+    RetrieveAPIView,
+    RetrieveUpdateAPIView,
+    DestroyAPIView
 )
 
 #IMPORT PERMISOS
@@ -23,7 +26,7 @@ class ModuloViewset(viewsets.ModelViewSet):
     serializer_class = ModuloSerializer
 
 
-class ModuloListView(ListAPIView):
+class ModuloListAPIView(ListAPIView):
     """
     View que permite solo leer la lista de modulos 
     """
@@ -31,7 +34,7 @@ class ModuloListView(ListAPIView):
     serializer_class = ModuloListSerializer
     permission_classes = [AllowAny]
 
-class ModuloCreateView(CreateAPIView):
+class ModuloCreateAPIView(CreateAPIView):
     """
     View que permite un POST (crear) un modulo
     """
@@ -39,7 +42,7 @@ class ModuloCreateView(CreateAPIView):
     serializer_class = ModuloCrearActualizarSerializer
     permission_classes = [AllowAny]
 
-class ModuloDetalleView(RetrieveAPIView):
+class ModuloDetalleAPIView(RetrieveAPIView):
     """
     View para ver el detalle de un modulo, a traves del ID(pk)
     """
@@ -47,3 +50,25 @@ class ModuloDetalleView(RetrieveAPIView):
     serializer_class = ModuloDetalleSerializer
     lookup_field = 'id'
     permission_classes = [AllowAny]
+
+class ModuloEditarAPIView(RetrieveUpdateAPIView):
+    """
+    Serializador para editar un modulo por ID
+    """
+    queryset = Modulo.objects.all()
+    serializer_class = ModuloCrearActualizarSerializer
+    lookup_field = 'id'
+    permission_classes = [AllowAny]
+    #lookup_url_kwarg = "abc"
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
+        #email send_email
+class ModuloEliminarAPIView(DestroyAPIView):
+    """
+    Serializador par eliminar un modulo por ID
+    """
+    queryset = Modulo.objects.all()
+    serializer_class = ModuloDetalleSerializer
+    lookup_field = 'id'
+    permission_classes = [AllowAny]
+    #lookup_url_kwarg = "abc"

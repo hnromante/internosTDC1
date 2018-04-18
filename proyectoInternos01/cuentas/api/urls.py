@@ -5,10 +5,12 @@ from django.urls import path, include
 
 
 from .views import (
-    UsuarioCrearAPI,
-    UserViewAPI,
-    UsuarioListarAPI,
-    UsuarioDetalleAPI
+    UsuarioCrearAPIView,
+    UserAPIViewset,
+    UsuarioListarAPIView,
+    UsuarioDetalleAPIView,
+    UsuarioEditarAPIView,
+    UsuarioEliminarAPIView
 )
 # from . import views
 #router = routers.DefaultRouter()
@@ -18,9 +20,9 @@ from .views import (
 
 urlpatterns = [
     #url('',include(router.urls)),
-
-    url(r'^$', UsuarioListarAPI.as_view(), name='listar'),
-    url(r'^registrar/$', UsuarioCrearAPI.as_view(), name='registrar'),
-    url(r'(?P<id>\d+)/', UsuarioDetalleAPI.as_view(), name = 'detalle')
-    
+    url(r'^$', UsuarioListarAPIView.as_view(), name='listar'),
+    url(r'^registrar/$', UsuarioCrearAPIView.as_view(), name='registrar'),
+    url(r'(?P<id>\d+)/$', UsuarioDetalleAPIView.as_view(), name = 'detalle'),
+    url(r'(?P<id>\d+)/editar/$', UsuarioEditarAPIView.as_view(), name = 'editar'),
+    url(r'(?P<id>\d+)/eliminar/$', UsuarioEliminarAPIView.as_view(), name = 'eliminar'),
 ]

@@ -19,7 +19,7 @@ class UsuarioSerializer(ModelSerializer):
         fields = ('id','username','email')
 
 
-class UsuarioCrearSerializer(ModelSerializer):
+class UsuarioCrearActualizarSerializer(ModelSerializer):
     #email = EmailField(label = 'Email Address')
     #email2 = EmailField(label = 'Confirm Email')
     class Meta:
