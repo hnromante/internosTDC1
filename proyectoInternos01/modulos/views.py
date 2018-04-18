@@ -1,31 +1,23 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Modulo, User
-from .serializers import ModuloSerializer, UsuarioSerializer
-
-from rest_framework.permissions import (
-    AllowAny,
-    IsAuthenticated,
-    IsAdminUser,
-    IsAuthenticatedOrReadOnly,
-
-    )
+# from .serializers import ModuloSerializer, UsuarioSerializer
 
 
-# Create your views here.
+# # Create your views here.
 
-"""
-ModelViewSet se encarga de incorporar las funciones más básicas que va a necesitar un Modelo,
-para GET, PUT, DELETE
-"""
-class ModuloView(viewsets.ModelViewSet):
-    queryset = Modulo.objects.all()
-    serializer_class = ModuloSerializer
+# """
+# ModelViewSet se encarga de incorporar las funciones más básicas que va a necesitar un Modelo,
+# para GET, PUT, DELETE
+# """
+# class ModuloView(viewsets.ModelViewSet):
+#     queryset = Modulo.objects.all()
+#     serializer_class = ModuloSerializer
 
-class UserView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UsuarioSerializer
-    permission_classes = [IsAuthenticated]
+# class UserView(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UsuarioSerializer
+
 
 
 def index(request):
