@@ -1,7 +1,56 @@
-from rest_framework import serializers
+ 
+#from rest_framework import serializers
 from cuentas.models import User
 
-class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
+
+from rest_framework.serializers import (
+    CharField,
+    EmailField,
+    HyperlinkedIdentityField,
+    ModelSerializer,
+    SerializerMethodField,
+    ValidationError
+)
+
+
+class UsuarioSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ('id','username','email')
+
+
+class UsuarioCrearSerializer(ModelSerializer):
+    #email = EmailField(label = 'Email Address')
+    #email2 = EmailField(label = 'Confirm Email')
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'password',
+        ]
+    #Aun sin validar
+    def validar(self, data):
+        pass
+
+
+class UsuarioListarSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'username',
+            'email',
+        ]
+
+class UsuarioDetalleSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'first_name',
+            'last_name',
+            'email',
+            'username',
+            'password'
+        ]
