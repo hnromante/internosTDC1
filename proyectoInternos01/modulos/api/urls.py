@@ -3,10 +3,9 @@ from . import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('modulos',views.ModuloView)
-
+router.register('',views.ModuloView)
 
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)),
 ]

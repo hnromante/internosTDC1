@@ -21,12 +21,15 @@ from django.views.generic.base import TemplateView
 from modulos import views
 from rest_framework_jwt.views import obtain_jwt_token
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index'),
-    url(r'^api/auth/token/', obtain_jwt_token),
+    url(r'^$',views.index, name='index'),
+    url(r'^api/modulos/', include('modulos.api.urls')),
+    url(r'^api/usuarios/', include('cuentas.api.urls')),
+    # url(r'^api/auth/token/', obtain_jwt_token),
     # url(r'^.*', TemplateView.as_view(template_name='index.html'), name='inicio'),
-    path('api/',include('modulos.urls')),
-    path('api/users/',include('modulos.api_accounts.urls')),
+    # path('api/',include('modulos.urls')),
+    # path('api/usuarios/',include('modulos.api_accounts.urls')),
     
 ]

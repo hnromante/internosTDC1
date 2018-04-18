@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from cuentas.models import User
 
 
 class Modulo(models.Model):
