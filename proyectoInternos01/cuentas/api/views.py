@@ -33,12 +33,17 @@ class UsuarioListarAPIView(ListAPIView):
     serializer_class = UsuarioListarSerializer
     permission_classes = [AllowAny]
 
-class UsuarioDetalleAPIView(RetrieveAPIView):
+class UsuarioDetalleByIdAPIView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioDetalleSerializer
     lookup_field = 'id'
     permission_classes = [AllowAny]
 
+class UsuarioDetalleByEmailAPIView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsuarioDetalleSerializer
+    lookup_field = 'email'
+    permission_classes = [AllowAny]
 
 class UsuarioEditarAPIView(RetrieveUpdateAPIView):
     """
