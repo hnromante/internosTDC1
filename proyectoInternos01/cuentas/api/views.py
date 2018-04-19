@@ -1,16 +1,19 @@
 from cuentas.models import User
-from rest_framework import viewsets
-from rest_framework.views import APIView
+#####
+#SERIALIZERS imports
+#####
 from .serializers import (
     UsuarioSerializer, 
     UsuarioCrearActualizarSerializer, 
     UsuarioListarSerializer, 
     UsuarioDetalleSerializer
 )
-from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
+######
+#VIEWS imports
+######
+from rest_framework import viewsets
+from rest_framework.views import APIView
 from rest_framework.generics import (
     CreateAPIView,
     DestroyAPIView,
@@ -19,36 +22,41 @@ from rest_framework.generics import (
     RetrieveAPIView,
     RetrieveUpdateAPIView
 )
+#
+#PERMISOS
+#
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
 
-class UserAPIViewset(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UsuarioSerializer
 
+# class UserAPIViewset(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UsuarioSerializer
+    
 
 class UsuarioCrearAPIView(CreateAPIView):
+    """
+    Serializador para crear un usuario
+    """
     serializer_class = UsuarioCrearActualizarSerializer
     queryset = User.objects.all()
     permission_classes = [AllowAny]
 
-
-
-
 class UsuarioListarAPIView(ListAPIView):
+    """
+    Serializador para LISTAR TODOS LOS USUARIOS
+    """
     queryset = User.objects.all()
     serializer_class = UsuarioListarSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 class UsuarioDetalleByIdAPIView(RetrieveAPIView):
+    """
+    Serializador para ver detalles de un USUARIO por ID
+    """
     queryset = User.objects.all()
     serializer_class = UsuarioDetalleSerializer
     lookup_field = 'id'
-    permission_classes = [AllowAny]
-
-class UsuarioDetalleByEmailAPIView(RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UsuarioDetalleSerializer
-    lookup_field = 'email'
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 class UsuarioEditarAPIView(RetrieveUpdateAPIView):
     """
@@ -57,11 +65,11 @@ class UsuarioEditarAPIView(RetrieveUpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioCrearActualizarSerializer
     lookup_field = 'id'
-    permission_classes = [AllowAny]
-    #lookup_url_kwarg = "abc"
+    permission_classes = [IsAuthenticated]
+
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
-        #email send_email
+        
 
 class UsuarioEliminarAPIView(DestroyAPIView):
     """
@@ -70,6 +78,5 @@ class UsuarioEliminarAPIView(DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioDetalleSerializer
     lookup_field = 'id'
-    permission_classes = [AllowAny]
-    #lookup_url_kwarg = "abc"
+    permission_classes = [IsAuthenticated]
 

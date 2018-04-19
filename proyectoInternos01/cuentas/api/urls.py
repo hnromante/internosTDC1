@@ -8,10 +8,9 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from .views import (
     UsuarioCrearAPIView,
-    UserAPIViewset,
+    # UserAPIViewset,
     UsuarioListarAPIView,
     UsuarioDetalleByIdAPIView,
-    UsuarioDetalleByEmailAPIView,
     UsuarioEditarAPIView,
     UsuarioEliminarAPIView,
 )
@@ -23,6 +22,5 @@ urlpatterns = [
     url(r'(?P<id>\d+)/eliminar/$', UsuarioEliminarAPIView.as_view(), name = 'eliminar'),
     url(r'auth-token/$', obtain_auth_token, name='token'),
     url(r'(?P<id>\d+)/$', UsuarioDetalleByIdAPIView.as_view(), name = 'detalle-id'),
-    # url(r'(?P<email>.*)/$', UsuarioDetalleByEmailAPIView.as_view(), name = 'detalle-mail'),
    
 ]
