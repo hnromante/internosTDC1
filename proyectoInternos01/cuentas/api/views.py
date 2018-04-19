@@ -31,14 +31,6 @@ class UsuarioCrearAPIView(CreateAPIView):
     permission_classes = [AllowAny]
 
 
-    def post (self, request, *args, **kwargs):
-        data = request.data
-        serializer = UsuarioLoginSerializer(data=data)  
-
-        if serializer.is_valid(raise_exception=True):
-            new_data = serializer.data
-            return Response(new_data, status=HTTP_200_OK)
-        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
 class UsuarioListarAPIView(ListAPIView):
