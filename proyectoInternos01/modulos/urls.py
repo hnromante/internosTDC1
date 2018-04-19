@@ -3,10 +3,10 @@ from . import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('modulos',views.ModuloView)
+#-------------Se comenta ya que nos e esta utilizando, esta generaba una alerta--------#
+#router.register('modulos',views.ModuloView)
 
 
-
-urlpatterns = [
-    path('',include(router.urls))
-]
+# urlpatterns = [
+#     path('',include(router.urls))
+# ]

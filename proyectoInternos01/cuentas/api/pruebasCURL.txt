@@ -1,0 +1,7 @@
+OBTENER TOKEN USERNAME:curl -X POST -d "username=apitester&password=password123" http://127.0.0.1:8000/api/usuarios/auth-token/
+
+PASAR TOKEN : curl -X GET http://127.0.0.1:8000/api/usuarios/auth-token/ -H 'Authorization: Token 6847a28b9baa9f5f51cd5739c0bf3892a39641e9'
+
+PASAR TOKEN EMAIL:  curl -X POST -d "email=hugonromante@gmail.com&password=m3l0ntun41" http://127.0.0.1:8000/api/usuarios/auth-token/
+
+APITESTER TOKEN : 6847a28b9baa9f5f51cd5739c0bf3892a39641e9

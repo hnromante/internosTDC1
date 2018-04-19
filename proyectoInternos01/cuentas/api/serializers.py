@@ -1,7 +1,5 @@
- 
-#from rest_framework import serializers
 from cuentas.models import User
-
+from rest_framework.authtoken.models import Token
 
 from rest_framework.serializers import (
     CharField,
@@ -53,5 +51,6 @@ class UsuarioDetalleSerializer(ModelSerializer):
             'last_name',
             'email',
             'username',
-            'password'
+            'password',
+            'auth_token'
         ]
