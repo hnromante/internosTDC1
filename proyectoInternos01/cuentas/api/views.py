@@ -1,13 +1,15 @@
 from cuentas.models import User
 from rest_framework import viewsets
+from rest_framework.views import APIView
 from .serializers import (
     UsuarioSerializer, 
     UsuarioCrearActualizarSerializer, 
     UsuarioListarSerializer, 
-    UsuarioDetalleSerializer,
+    UsuarioDetalleSerializer
 )
 from rest_framework.permissions import AllowAny
-
+from rest_framework.response import Response
+from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
 from rest_framework.generics import (
     CreateAPIView,
@@ -27,6 +29,17 @@ class UsuarioCrearAPIView(CreateAPIView):
     serializer_class = UsuarioCrearActualizarSerializer
     queryset = User.objects.all()
     permission_classes = [AllowAny]
+
+
+    def post (self, request, *args, **kwargs):
+        data = request.data
+        serializer = UsuarioLoginSerializer(data=data)  
+
+        if serializer.is_valid(raise_exception=True):
+            new_data = serializer.data
+            return Response(new_data, status=HTTP_200_OK)
+        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
 
 class UsuarioListarAPIView(ListAPIView):
     queryset = User.objects.all()
@@ -67,3 +80,4 @@ class UsuarioEliminarAPIView(DestroyAPIView):
     lookup_field = 'id'
     permission_classes = [AllowAny]
     #lookup_url_kwarg = "abc"
+

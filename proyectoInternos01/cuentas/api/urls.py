@@ -1,13 +1,10 @@
 from django.conf.urls import url
 from django.urls import path, include
-<<<<<<< HEAD
 
 #TOKEN AUTH ENDPOINT
 from rest_framework.authtoken.views import obtain_auth_token
 
 
-=======
->>>>>>> e3c9160c92a82611d5d1870571d32d89231d96a2
 
 from .views import (
     UsuarioCrearAPIView,
@@ -16,7 +13,7 @@ from .views import (
     UsuarioDetalleByIdAPIView,
     UsuarioDetalleByEmailAPIView,
     UsuarioEditarAPIView,
-    UsuarioEliminarAPIView
+    UsuarioEliminarAPIView,
 )
 urlpatterns = [
     #url('',include(router.urls)),
@@ -26,5 +23,6 @@ urlpatterns = [
     url(r'(?P<id>\d+)/eliminar/$', UsuarioEliminarAPIView.as_view(), name = 'eliminar'),
     url(r'auth-token/$', obtain_auth_token, name='token'),
     url(r'(?P<id>\d+)/$', UsuarioDetalleByIdAPIView.as_view(), name = 'detalle-id'),
-    url(r'(?P<email>.*)/$', UsuarioDetalleByEmailAPIView.as_view(), name = 'detalle-mail'),
+    # url(r'(?P<email>.*)/$', UsuarioDetalleByEmailAPIView.as_view(), name = 'detalle-mail'),
+   
 ]

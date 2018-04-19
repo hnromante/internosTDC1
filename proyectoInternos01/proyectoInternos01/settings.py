@@ -143,3 +143,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+
+#PEDIR EMAIL EN LUGAR DE USERNAME
