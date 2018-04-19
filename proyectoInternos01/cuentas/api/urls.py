@@ -1,8 +1,5 @@
 from django.conf.urls import url
 from django.urls import path, include
-#from rest_framework import routers
-
-
 
 from .views import (
     UsuarioCrearAPIView,
@@ -12,12 +9,6 @@ from .views import (
     UsuarioEditarAPIView,
     UsuarioEliminarAPIView
 )
-# from . import views
-#router = routers.DefaultRouter()
-#router.register('',views.UserView)
-
-
-
 urlpatterns = [
     #url('',include(router.urls)),
     url(r'^$', UsuarioListarAPIView.as_view(), name='listar'),
