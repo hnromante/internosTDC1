@@ -1,10 +1,13 @@
 from django.conf.urls import url
 from django.urls import path, include
+<<<<<<< HEAD
 
 #TOKEN AUTH ENDPOINT
 from rest_framework.authtoken.views import obtain_auth_token
 
 
+=======
+>>>>>>> e3c9160c92a82611d5d1870571d32d89231d96a2
 
 from .views import (
     UsuarioCrearAPIView,
@@ -15,12 +18,6 @@ from .views import (
     UsuarioEditarAPIView,
     UsuarioEliminarAPIView
 )
-# from . import views
-#router = routers.DefaultRouter()
-#router.register('',views.UserView)
-
-
-
 urlpatterns = [
     #url('',include(router.urls)),
     url(r'^$', UsuarioListarAPIView.as_view(), name='listar'),

@@ -24,7 +24,7 @@ class UsuarioCrearActualizarSerializer(ModelSerializer):
         model = User
         fields = [
             'username',
-            'last_name',
+            'first_name',
             'email',
             'password',
         ]
