@@ -79,14 +79,14 @@ var AppRoutingModule = (function () {
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n\n  <mat-sidenav #sidenav mode=\"push\">\n    <div class=\"branding\"><img src=\"/static/ang/assets/logo.png\" /> <span>Proyecto Interno 01</span></div>\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let item of navigationSideMenu\" (click)=\"sidenav.close()\"\n         [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\n        {{item.label}}\n      </a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <div class=\"wrapper\">\n\n    <div class=\"toolbar\">\n      <mat-toolbar color=\"primary\">\n        <button mat-icon-button class=\"d-md-none\" (click)=\"sidenav.open()\">\n          <mat-icon>menu</mat-icon>\n        </button>\n\n        <span routerLink=\"\" class=\"branding spacer d-inline d-sm-none text-center\"><img\n          src=\"/static/ang/assets/logo.png\"/></span>\n        <span routerLink=\"\" class=\"branding spacer d-none d-sm-inline d-md-none text-center\"><img\n          src=\"/static/ang/assets/logo.png\"/> Angular Starter</span>\n        <span routerLink=\"\" class=\"branding spacer d-none d-md-inline\"><img\n          src=\"/static/ang/assets/logo.png\"/> Proyecto Internos 01</span>\n\n\n          <div class=\"form\">\n              <mat-form-field color=\"accent\" class=\"underline\">\n          <input matInput #input  class=\"form-control\" placeholder=\"Correo Electronico\"  name=\"name\"  >\n          </mat-form-field>\n          </div>\n\n          <div class=\"form\">\n              <mat-form-field color=\"accent\" class=\"underline\">\n          <input matInput #input type=\"password\" class=\"form-control\" placeholder=\"Contraseña\"  name=\"name\"  >\n          </mat-form-field>\n          </div>\n\n          \n        <span class=\"d-none d-md-inline\">\n        <button mat-button class=\"nav-button mat-button ng-tns-c0-0 ng-star-inserted active\" mat-button=\"\" >\n            Ingresar\n          </button>\n          </span>\n\n\n          <!--\n        <div  *ngIf=\"!af.authenticated\">\n            <button mat-button class=\"sign-in-button\"\n            (click)=\"showLoggin()\">\n            Sign in\n            </button>\n        </div>\n      -->\n\n        \n\n        <div  *ngIf=\"af.authenticated\">\n            \n                <button \n                mat-button class=\"sign-in-button\"\n                [matMenuTriggerFor]=\"toolbarUserMenu\">\n          <mat-icon>person</mat-icon>\n          {{ af.user_name }}\n          \n\n        </button>\n        \n            \n              <mat-menu #toolbarUserMenu=\"matMenu\">\n                  <button mat-menu-item (click)=\"onLogoutClick()\">\n                    <mat-icon>power_settings_new</mat-icon>\n                    <span>Logout</span>\n                  </button>\n                </mat-menu>\n          </div>\n\n  \n\n        <button mat-icon-button routerLink=\"settings\" class=\"d-none d-sm-inline\">\n          <mat-icon>settings</mat-icon>\n        </button>\n\n\n      </mat-toolbar>\n    </div>\n\n    <div class=\"content\"\n         [@routerTransition]=\"o.isActivated && o.activatedRoute.routeConfig.path\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n\n    <div class=\"footer\">\n      <div class=\"row\">\n        <div class=\"col-sm-12 links\">\n          <a href=\"https://github.com/Demaro\" target=\"_blank\">\n            <i class=\"fa fa-github fa-2x\" aria-hidden=\"true\"></i>\n            <span>Github</span>\n          </a>\n          <a href=\"https://www.linkedin.com/in/demaro1/\" target=\"_blank\">\n            <i class=\"fa fa-linkedin fa-2x\" aria-hidden=\"true\"></i>\n            <span>Linkedin</span>\n          </a>\n          <a href=\"https://www.youtube.com/channel/UCwPzgRgzesvfO2HzTYacrtA?\"\n          target=\"_blank\">\n         <i class=\"fa fa-youtube fa-2x\" aria-hidden=\"true\"></i>\n         <span>Youtube</span>\n       </a>\n          <a href=\"https://www.medium.com/@tomastrajan\" target=\"_blank\">\n            <i class=\"fa fa-medium fa-2x\" aria-hidden=\"true\"></i>\n            <span>Medium</span>\n          </a>\n          <a href=\"#\">\n            <i class=\"fa fa-twitter fa-2x\" aria-hidden=\"true\"></i>\n            <span>Twitter</span>\n          </a>\n          <a href=\"#\">\n            <i class=\"fa fa-desktop fa-2x\" aria-hidden=\"true\"></i>\n            <span>Slides</span>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12 signature\">\n          &#169; {{year}} - Demaro Create \n          <br class=\"d-block d-sm-none\">\n\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container>\n\n  <mat-sidenav #sidenav mode=\"push\">\n    <div class=\"branding\"><img src=\"/static/ang/assets/logo.png\" /> <span>ProyectFemale</span></div>\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let item of navigationSideMenu\" (click)=\"sidenav.close()\"\n         [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\n        {{item.label}}\n      </a>\n\n\n      <button mat-raised-button  class=\"color \" (click)=\"onLoginGoogle()\">\n          <i class=\"fa fa-google-plus\" aria-hidden=\"true\"></i>\n           Ingresar con Google \n   </button>\n\n\n      <div class=\"form\" class=\"branding\">\n          <mat-form-field color=\"accent\" class=\"underline\">\n      <input matInput #input  class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"datalog.email\"  name=\"username\"  >\n      </mat-form-field>\n      </div>\n\n      <div class=\"form\" class=\"branding\">\n          <mat-form-field color=\"accent\" class=\"underline\">\n      <input matInput #input type=\"password\" class=\"form-control\" placeholder=\"Contraseña\"  [(ngModel)]=\"datalog.password\" name=\"password\"  >\n      </mat-form-field>\n      </div>\n\n  \n    <button mat-raised-button color=\"accent\" mat-button=\"\" >\n        Ingresar\n      </button>\n     \n\n\n\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <div class=\"wrapper\">\n\n    <div class=\"toolbar\">\n      <mat-toolbar color=\"primary\">\n        <button mat-icon-button class=\"d-md-none\" (click)=\"sidenav.open()\">\n          <mat-icon>menu</mat-icon>\n        </button>\n\n        <span routerLink=\"\" class=\"branding spacer d-inline d-sm-none text-center\"><img\n          src=\"/static/ang/assets/logo.png\"/></span>\n        <span routerLink=\"\" class=\"branding spacer d-none d-sm-inline d-md-none text-center\"><img\n          src=\"/static/ang/assets/logo.png\"/> Proyect1</span>\n\n\n\n        <span routerLink=\"\" class=\"branding spacer d-none d-md-inline\"><img\n          src=\"/static/ang/assets/logo.png\"/> Proyect1</span>\n\n\n          <form    #formControlLogin=\"ngForm\">\n\n     \n        <mat-form-field color=\"accent\" class=\"underline\">\n        <input matInput #input  class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"datalog.email\" id=\"email_login\" name=\"email_login\" email required>\n        <mat-error *ngIf=\"formControlLogin.invalid\">{{getErrorMessage_email()}}</mat-error>\n       </mat-form-field>\n\n       <mat-form-field color=\"accent\" class=\"underline\">\n          <input matInput #input  type=\"password\" class=\"form-control\"  placeholder=\"Contraseña\"  [(ngModel)]=\"datalog.password\" id=\"password_login\" name=\"password_login\"  required>\n          <mat-error *ngIf=\"formControlLogin.invalid\">{{getErrorMessage()}}</mat-error>\n         </mat-form-field>\n\n        <button mat-raised-button color=\"accent\" class=\"branding  d-none d-md-inline nav-button mat-button \" [disabled]=\"!formControlLogin.valid\"[type]=\"submit\"  (click)=\"LogIn(formControlLogin)\" mat-button=\"\" >\n            Ingresar\n          </button>\n\n  \n  \n          <button mat-raised-button  class=\"color branding  d-none d-md-inline\" (click)=\"onLoginGoogle()\">\n              <i class=\"fa fa-google-plus\" aria-hidden=\"true\"></i>\n               Ingresar con Google \n       </button>\n  \n      </form>\n     \n    \n          <!--\n        <div  *ngIf=\"!af.authenticated\">\n            <button mat-button class=\"sign-in-button\"\n            (click)=\"showLoggin()\">\n            Sign in\n            </button>\n        </div>\n      -->\n\n        \n\n        <div  *ngIf=\"af.authenticated\">\n            \n                <button \n                mat-button class=\"sign-in-button\"\n                [matMenuTriggerFor]=\"toolbarUserMenu\">\n          <mat-icon>person</mat-icon>\n          {{ af.user_name }}\n          \n\n        </button>\n        \n            \n              <mat-menu #toolbarUserMenu=\"matMenu\">\n                  <button mat-menu-item (click)=\"onLogoutClick()\">\n                    <mat-icon>power_settings_new</mat-icon>\n                    <span>Logout</span>\n                  </button>\n                </mat-menu>\n          </div>\n\n  \n\n        <button mat-icon-button routerLink=\"settings\" class=\"d-none d-sm-inline\">\n          <mat-icon>settings</mat-icon>\n        </button>\n\n\n      </mat-toolbar>\n    </div>\n\n    <div class=\"content\"\n         [@routerTransition]=\"o.isActivated && o.activatedRoute.routeConfig.path\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n\n    <div class=\"footer\">\n      <div class=\"row\">\n        <div class=\"col-sm-12 links\">\n          <a href=\"https://github.com/Demaro\" target=\"_blank\">\n            <i class=\"fa fa-github fa-2x\" aria-hidden=\"true\"></i>\n            <span>Github</span>\n          </a>\n          <a href=\"https://www.linkedin.com/in/demaro1/\" target=\"_blank\">\n            <i class=\"fa fa-linkedin fa-2x\" aria-hidden=\"true\"></i>\n            <span>Linkedin</span>\n          </a>\n          <a href=\"https://www.youtube.com/channel/UCwPzgRgzesvfO2HzTYacrtA?\"\n          target=\"_blank\">\n         <i class=\"fa fa-youtube fa-2x\" aria-hidden=\"true\"></i>\n         <span>Youtube</span>\n       </a>\n          <a href=\"https://www.medium.com/@tomastrajan\" target=\"_blank\">\n            <i class=\"fa fa-medium fa-2x\" aria-hidden=\"true\"></i>\n            <span>Medium</span>\n          </a>\n          <a href=\"#\">\n            <i class=\"fa fa-twitter fa-2x\" aria-hidden=\"true\"></i>\n            <span>Twitter</span>\n          </a>\n          <a href=\"#\">\n            <i class=\"fa fa-desktop fa-2x\" aria-hidden=\"true\"></i>\n            <span>Slides</span>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12 signature\">\n          &#169; {{year}} - Demaro Create \n          <br class=\"d-block d-sm-none\">\n\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</mat-sidenav-container>\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.scss":
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  height: 100%; }\n\nmat-sidenav-container {\n  height: 100%; }\n\nmat-sidenav-container .wrapper {\n    z-index: -2;\n    height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    position: relative;\n    overflow-y: auto; }\n\nmat-sidenav-container .wrapper .toolbar {\n      position: fixed;\n      width: 100%;\n      z-index: 1;\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 auto;\n              flex: 0 0 auto; }\n\nmat-sidenav-container .wrapper .toolbar .nav-button {\n        margin: 0 10px 0 0; }\n\nmat-sidenav-container .wrapper .toolbar .branding {\n        cursor: pointer; }\n\nmat-sidenav-container .wrapper .toolbar .sign-in-button {\n        line-height: 35px;\n        margin-right: 10px; }\n\nmat-sidenav-container .wrapper .toolbar .spacer {\n        -webkit-box-flex: 1;\n            -ms-flex: 1 1 auto;\n                flex: 1 1 auto; }\n\n@media (max-width: 992px) {\n        mat-sidenav-container .wrapper .toolbar .nav-button {\n          min-width: 0;\n          padding: 0 10px; }\n        mat-sidenav-container .wrapper .toolbar .sign-in-button {\n          min-width: 0;\n          padding: 0 10px;\n          margin: 0 5px 0 0; }\n        mat-sidenav-container .wrapper .toolbar .log-in-button {\n          min-width: 0;\n          padding: 0 10px;\n          margin: 0 30px 0 0; } }\n\nmat-sidenav-container .wrapper .content {\n      padding-top: 64px;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 0 auto;\n              flex: 1 0 auto;\n      position: relative; }\n\nmat-sidenav-container .wrapper .footer {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 auto;\n              flex: 0 0 auto;\n      padding: 0 15px;\n      text-align: center;\n      z-index: 1; }\n\nmat-sidenav-container .wrapper .footer .row {\n        padding: 10px 0; }\n\nmat-sidenav-container .wrapper .footer .row .links a {\n          -webkit-transition: padding 0.5s;\n          transition: padding 0.5s;\n          display: inline-block;\n          padding: 20px 5px; }\n\nmat-sidenav-container .wrapper .footer .row .links a:hover {\n            text-decoration: none; }\n\nmat-sidenav-container .wrapper .footer .row .links a span {\n            display: inline-block;\n            width: 70px;\n            padding: 0 0 0 5px;\n            overflow: hidden;\n            text-align: left;\n            white-space: nowrap;\n            -webkit-transition: width 0.5s;\n            transition: width 0.5s; }\n\n@media (max-width: 768px) {\n          mat-sidenav-container .wrapper .footer .row .links a {\n            padding: 20px; }\n            mat-sidenav-container .wrapper .footer .row .links a span {\n              width: 0;\n              padding: 0; } }\n\n@media (max-width: 576px) {\n          mat-sidenav-container .wrapper .footer .row .links a {\n            padding: 20px 3px; } }\n\n@media (min-width: 576px) {\n          mat-sidenav-container .wrapper .footer .row .signature {\n            position: relative; }\n            mat-sidenav-container .wrapper .footer .row .signature a {\n              position: absolute;\n              right: 15px; } }\n\nmat-sidenav {\n  width: 250px; }\n\nmat-sidenav .branding {\n    height: 64px;\n    padding: 8px 10px;\n    font-size: 20px;\n    font-weight: 500; }\n\nmat-sidenav .branding img {\n      margin: 0 10px 0 0; }\n\nmat-sidenav .branding span {\n      position: relative;\n      top: 3px; }\n\nmat-sidenav .mat-nav-list {\n    padding-top: 0; }\n\n.mat-form-field {\n  font-size: 16px; }\n\n.marginbtn {\n  margin: 0 20px 0 0; }\n\n.underline {\n  width: 90%;\n  bottom: -0.3em; }\n"
+module.exports = ":host {\n  height: 100%; }\n\nmat-sidenav-container {\n  height: 100%; }\n\nmat-sidenav-container .wrapper {\n    z-index: -2;\n    height: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    position: relative;\n    overflow-y: auto; }\n\nmat-sidenav-container .wrapper .toolbar {\n      position: fixed;\n      width: 100%;\n      z-index: 1;\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 auto;\n              flex: 0 0 auto; }\n\nmat-sidenav-container .wrapper .toolbar .nav-button {\n        margin: 0 10px 0 0; }\n\nmat-sidenav-container .wrapper .toolbar .branding {\n        cursor: pointer; }\n\nmat-sidenav-container .wrapper .toolbar .sign-in-button {\n        line-height: 35px;\n        margin-right: 10px; }\n\nmat-sidenav-container .wrapper .toolbar .spacer {\n        -webkit-box-flex: 1;\n            -ms-flex: 1 1 auto;\n                flex: 1 1 auto; }\n\n@media (max-width: 992px) {\n        mat-sidenav-container .wrapper .toolbar .nav-button {\n          min-width: 0;\n          padding: 0 10px; }\n        mat-sidenav-container .wrapper .toolbar .sign-in-button {\n          min-width: 0;\n          padding: 0 10px;\n          margin: 0 5px 0 0; }\n        mat-sidenav-container .wrapper .toolbar .log-in-button {\n          min-width: 0;\n          padding: 0 10px;\n          margin: 0 30px 0 0; } }\n\nmat-sidenav-container .wrapper .content {\n      padding-top: 64px;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 0 auto;\n              flex: 1 0 auto;\n      position: relative; }\n\nmat-sidenav-container .wrapper .footer {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 auto;\n              flex: 0 0 auto;\n      padding: 0 15px;\n      text-align: center;\n      z-index: 1; }\n\nmat-sidenav-container .wrapper .footer .row {\n        padding: 10px 0; }\n\nmat-sidenav-container .wrapper .footer .row .links a {\n          -webkit-transition: padding 0.5s;\n          transition: padding 0.5s;\n          display: inline-block;\n          padding: 20px 5px; }\n\nmat-sidenav-container .wrapper .footer .row .links a:hover {\n            text-decoration: none; }\n\nmat-sidenav-container .wrapper .footer .row .links a span {\n            display: inline-block;\n            width: 70px;\n            padding: 0 0 0 5px;\n            overflow: hidden;\n            text-align: left;\n            white-space: nowrap;\n            -webkit-transition: width 0.5s;\n            transition: width 0.5s; }\n\n@media (max-width: 768px) {\n          mat-sidenav-container .wrapper .footer .row .links a {\n            padding: 20px; }\n            mat-sidenav-container .wrapper .footer .row .links a span {\n              width: 0;\n              padding: 0; } }\n\n@media (max-width: 576px) {\n          mat-sidenav-container .wrapper .footer .row .links a {\n            padding: 20px 3px; } }\n\n@media (min-width: 576px) {\n          mat-sidenav-container .wrapper .footer .row .signature {\n            position: relative; }\n            mat-sidenav-container .wrapper .footer .row .signature a {\n              position: absolute;\n              right: 15px; } }\n\nmat-sidenav {\n  width: 250px; }\n\nmat-sidenav .branding {\n    height: 64px;\n    padding: 8px 10px;\n    font-size: 20px;\n    font-weight: 500; }\n\nmat-sidenav .branding img {\n      margin: 0 10px 0 0; }\n\nmat-sidenav .branding span {\n      position: relative;\n      top: 3px; }\n\nmat-sidenav .mat-nav-list {\n    padding-top: 0; }\n\n.form {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding-top: 6px;\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 16px; }\n\n.marginbtn {\n  margin: 0 20px 0 0; }\n\n.underline {\n  width: 25%;\n  bottom: -0.3em; }\n"
 
 /***/ }),
 
@@ -106,11 +106,12 @@ module.exports = ":host {\n  height: 100%; }\n\nmat-sidenav-container {\n  heigh
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_static_services_data_service__ = __webpack_require__("./src/app/static/services/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_static_services_authentication_service__ = __webpack_require__("./src/app/static/services/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_static_dialog_loggin_loggin_component__ = __webpack_require__("./src/app/static/dialog/loggin/loggin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_core__ = __webpack_require__("./src/app/core/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__env_environment__ = __webpack_require__("./src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__settings__ = __webpack_require__("./src/app/settings/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_static_models_models__ = __webpack_require__("./src/app/static/models/models.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_static_dialog_loggin_loggin_component__ = __webpack_require__("./src/app/static/dialog/loggin/loggin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_core__ = __webpack_require__("./src/app/core/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__env_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__settings__ = __webpack_require__("./src/app/settings/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__app_static_models_models__ = __webpack_require__("./src/app/static/models/models.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -136,8 +137,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(overlayContainer, store, router, titleService, dataService, dialog, af) {
+    function AppComponent(overlayContainer, store, router, titleService, dataService, dialog, af, datalog, authentication) {
         this.overlayContainer = overlayContainer;
         this.store = store;
         this.router = router;
@@ -145,11 +147,13 @@ var AppComponent = (function () {
         this.dataService = dataService;
         this.dialog = dialog;
         this.af = af;
+        this.datalog = datalog;
+        this.authentication = authentication;
         this.unsubscribe$ = new __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__["a" /* Subject */]();
         this.isLoged = false;
-        this.isProd = __WEBPACK_IMPORTED_MODULE_13__env_environment__["a" /* environment */].production;
-        this.envName = __WEBPACK_IMPORTED_MODULE_13__env_environment__["a" /* environment */].envName;
-        this.version = __WEBPACK_IMPORTED_MODULE_13__env_environment__["a" /* environment */].versions.app;
+        this.isProd = __WEBPACK_IMPORTED_MODULE_14__env_environment__["a" /* environment */].production;
+        this.envName = __WEBPACK_IMPORTED_MODULE_14__env_environment__["a" /* environment */].envName;
+        this.version = __WEBPACK_IMPORTED_MODULE_14__env_environment__["a" /* environment */].versions.app;
         this.year = new Date().getFullYear();
         this.navigation = [
             { link: 'about', label: 'Inicio' },
@@ -159,7 +163,19 @@ var AppComponent = (function () {
         this.navigationSideMenu = this.navigation.concat([
             { link: 'settings', label: 'Settings' }
         ]);
+        this.formControlLogin = new __WEBPACK_IMPORTED_MODULE_11__angular_forms__["b" /* FormControl */]('', [
+            __WEBPACK_IMPORTED_MODULE_11__angular_forms__["i" /* Validators */].required,
+            __WEBPACK_IMPORTED_MODULE_11__angular_forms__["i" /* Validators */].email,
+        ]);
     }
+    AppComponent.prototype.getErrorMessage = function () {
+        return this.formControlLogin.hasError('required') ? 'Campo Requerido' :
+            '';
+    };
+    AppComponent.prototype.getErrorMessage_email = function () {
+        return this.formControlLogin.hasError('email') ? 'Ingrese un Email Valido' :
+            '';
+    };
     AppComponent.prototype.ngOnChanges = function () {
         this.dataService.getEmployeeList();
         this.isLoged = true;
@@ -168,13 +184,13 @@ var AppComponent = (function () {
         var _this = this;
         this.dataService.getEmployeeList();
         this.store
-            .select(__WEBPACK_IMPORTED_MODULE_14__settings__["d" /* selectorSettings */])
+            .select(__WEBPACK_IMPORTED_MODULE_15__settings__["d" /* selectorSettings */])
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators_takeUntil__["a" /* takeUntil */])(this.unsubscribe$))
             .subscribe(function (settings) {
             var theme = settings.theme, autoNightMode = settings.autoNightMode;
             var hours = new Date().getHours();
             var effectiveTheme = (autoNightMode && (hours >= 20 || hours <= 6)
-                ? __WEBPACK_IMPORTED_MODULE_14__settings__["a" /* NIGHT_MODE_THEME */]
+                ? __WEBPACK_IMPORTED_MODULE_15__settings__["a" /* NIGHT_MODE_THEME */]
                 : theme).toLowerCase();
             _this.componentCssClass = effectiveTheme;
             var classList = _this.overlayContainer.getContainerElement().classList;
@@ -185,7 +201,7 @@ var AppComponent = (function () {
             classList.add(effectiveTheme);
         });
         this.store
-            .select(__WEBPACK_IMPORTED_MODULE_12__app_core__["f" /* selectorAuth */])
+            .select(__WEBPACK_IMPORTED_MODULE_13__app_core__["f" /* selectorAuth */])
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators_takeUntil__["a" /* takeUntil */])(this.unsubscribe$))
             .subscribe(function (auth) { return (_this.isAuthenticated = auth.isAuthenticated); });
         this.router.events
@@ -196,7 +212,7 @@ var AppComponent = (function () {
                 lastChild = lastChild.children[0];
             }
             var title = lastChild.data.title;
-            _this.titleService.setTitle(title ? title + " - " + __WEBPACK_IMPORTED_MODULE_13__env_environment__["a" /* environment */].appName : __WEBPACK_IMPORTED_MODULE_13__env_environment__["a" /* environment */].appName);
+            _this.titleService.setTitle(title ? title + " - " + __WEBPACK_IMPORTED_MODULE_14__env_environment__["a" /* environment */].appName : __WEBPACK_IMPORTED_MODULE_14__env_environment__["a" /* environment */].appName);
         });
     };
     AppComponent.prototype.ngOnDestroy = function () {
@@ -204,16 +220,41 @@ var AppComponent = (function () {
         this.unsubscribe$.complete();
     };
     AppComponent.prototype.onLoginClick = function () {
-        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_12__app_core__["b" /* ActionAuthLogin */]());
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_13__app_core__["b" /* ActionAuthLogin */]());
     };
     AppComponent.prototype.onLogoutClick = function () {
-        this.dataService.user_get = __WEBPACK_IMPORTED_MODULE_15__app_static_models_models__["b" /* User */][''];
+        this.dataService.user_get = __WEBPACK_IMPORTED_MODULE_16__app_static_models_models__["c" /* UserLogin */][''];
         this.af.logout();
         this.af.authenticated = false;
     };
     AppComponent.prototype.showLoggin = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_11__app_static_dialog_loggin_loggin_component__["a" /* LogginComponent */], {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_12__app_static_dialog_loggin_loggin_component__["a" /* LogginComponent */], {
             data: {}
+        });
+    };
+    AppComponent.prototype.LogIn = function (form) {
+        var _this = this;
+        this.dataService.postLogin(form.value.email)
+            .subscribe(function (data) {
+            console.log("Email enviado en lOGIN", form.value.email);
+            //this.resetForm(form);
+            _this.dataService.getEmployeeList();
+            //this.toastr.success('Nuevo registro agregado con éxito!',' Registro de empleados');
+        });
+    };
+    AppComponent.prototype.onLoginGoogle = function () {
+        var _this = this;
+        this.authentication.login()
+            .then(function (data) {
+            console.log(data.additionalUserInfo.profile.given_name);
+            console.log(data);
+            _this.authentication.authenticated = true;
+            _this.authentication.user_name = data.additionalUserInfo.profile.given_name;
+            console.log(_this.authentication.user_name);
+        })
+            .catch(function (error) {
+            console.log(error);
+            alert('loged Error!');
         });
     };
     __decorate([
@@ -225,7 +266,7 @@ var AppComponent = (function () {
             selector: 'anms-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.scss")],
-            animations: [__WEBPACK_IMPORTED_MODULE_12__app_core__["e" /* routerTransition */]]
+            animations: [__WEBPACK_IMPORTED_MODULE_13__app_core__["e" /* routerTransition */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_cdk_overlay__["d" /* OverlayContainer */],
             __WEBPACK_IMPORTED_MODULE_4__ngrx_store__["c" /* Store */],
@@ -233,6 +274,8 @@ var AppComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["f" /* Title */],
             __WEBPACK_IMPORTED_MODULE_8__app_static_services_data_service__["a" /* DataService */],
             __WEBPACK_IMPORTED_MODULE_10__angular_material__["c" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_9__app_static_services_authentication_service__["a" /* AuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_16__app_static_models_models__["c" /* UserLogin */],
             __WEBPACK_IMPORTED_MODULE_9__app_static_services_authentication_service__["a" /* AuthenticationService */]])
     ], AppComponent);
     return AppComponent;
@@ -1358,7 +1401,7 @@ var SharedModule = (function () {
 /***/ "./src/app/static/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n\n        <mat-card [ngClass]=\"animateOnRouteEnter\">\n\n      <h1 >Abre una Cuenta</h1>\n      <h2>Comienza. ¡Es gratis!</h2>\n      <mat-divider></mat-divider>\n\n      \n      <form class=\"mat-dialog-content\"   #formControl=\"ngForm\">\n\n          \n            <div class=\"form\">\n            <mat-form-field color=\"primary\" >\n            <input matInput  #input placeholder=\"Nombre\"  name=\"username\" class=\"form-control\"  [(ngModel)]=\"data.username\"required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Nombre Completo\" [(ngModel)]=\"data.first_name\" name=\"first_name\"  >\n           \n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"data.email\"  name=\"email\" id=\"email\"  email required >\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage_email()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput type=\"password\" #input #message minlength=\"8\" maxlength=\"8\" class=\"form-control\" placeholder=\"Contraseña\"  [(ngModel)]=\"data.password\" name=\"password\" required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            <mat-hint align=\"end\">{{message.value.length}} / 8</mat-hint>\n            </mat-form-field>\n            </div>\n            <br>\n\n            <mat-card-subtitle class=\"center\">\n              Al hacer clic en unirte, aceptas las Condiciones de uso, la Política de privacidad y la Política de cookies de LinkedIn.\n            </mat-card-subtitle>\n           \n\n            <div mat-dialog-actions class=\"center\">\n\n\n            <a [ngClass]=\"animateOnRouteEnter\" \n               mat-raised-button color=\"primary\" class=\"size\" [type]=\"submit\" [disabled]=\"!formControl.valid\" (click)=\"confirmAdd(formControl)\">\n              Únete ahora\n              </a>\n            </div>\n\n           \n          </form>\n         \n\n\n\n        </mat-card>\n        </div>\n      \n    </div>\n  </div>\n\n\n \n    \n\n\n  \n\n"
+module.exports = "<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n\n        <mat-card [ngClass]=\"animateOnRouteEnter\">\n\n      <h1 >Abre una Cuenta</h1>\n      <h2>Comienza. ¡Es gratis!</h2>\n      <mat-divider></mat-divider>\n\n      \n      <form class=\"mat-dialog-content\"   #formControl=\"ngForm\">\n\n          \n            <div class=\"form\">\n            <mat-form-field color=\"primary\" >\n            <input matInput  #input placeholder=\"Nombre\"  name=\"username\" class=\"form-control\"  [(ngModel)]=\"data.username\"required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Nombre Completo\" [(ngModel)]=\"data.first_name\" name=\"first_name\"  >\n           \n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput #input class=\"form-control\" placeholder=\"Correo Electronico\"  [(ngModel)]=\"data.email\"  name=\"email\" id=\"email\"  email required >\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage_email()}}</mat-error>\n            </mat-form-field>\n            </div>\n\n            <div class=\"form\">\n                <mat-form-field color=\"primary\">\n            <input matInput type=\"password\" #input #message minlength=\"8\" maxlength=\"8\" class=\"form-control\" placeholder=\"Contraseña\"  [(ngModel)]=\"data.password\" name=\"password\" required>\n            <mat-error *ngIf=\"formControl.invalid\">{{getErrorMessage()}}</mat-error>\n            <mat-hint align=\"end\">{{message.value.length}} / 8</mat-hint>\n            </mat-form-field>\n            </div>\n            <br>\n\n            <mat-card-subtitle class=\"center\">\n              Al hacer clic en unirte, aceptas las Condiciones de uso, la Política de privacidad y la Política de cookies de LinkedIn.\n            </mat-card-subtitle>\n           \n\n            <div mat-dialog-actions class=\"center\">\n\n\n            <a [ngClass]=\"animateOnRouteEnter\" \n               mat-raised-button color=\"accent\" class=\"size\" [type]=\"submit\" [disabled]=\"!formControl.valid\" (click)=\"confirmAdd(formControl)\">\n              Únete ahora\n              </a>\n            </div>\n\n           \n          </form>\n         \n\n\n\n        </mat-card>\n        </div>\n      \n    </div>\n  </div>\n\n\n \n    \n\n\n  \n\n"
 
 /***/ }),
 
@@ -1398,11 +1441,9 @@ var AboutComponent = (function () {
         this.dataService = dataService;
         this.data = data;
         this.animateOnRouteEnter = __WEBPACK_IMPORTED_MODULE_1__app_core__["a" /* ANIMATE_ON_ROUTE_ENTER */];
-        this.pwdPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
         this.formControl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* Validators */].required,
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* Validators */].email,
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* Validators */].pattern(this.pwdPattern),
         ]);
     }
     AboutComponent.prototype.getErrorMessage = function () {
@@ -1780,7 +1821,7 @@ var LogginComponent = (function () {
     LogginComponent.prototype.loggin = function (form, content) {
         var _this = this;
         this.dialogRef.close();
-        this.dataService.postLoggin(form.value)
+        this.dataService.postLogin(form.value)
             .subscribe(function (data) {
             //this.resetForm(form);
             _this.dataService.getUser(data.email);
@@ -1921,6 +1962,7 @@ var FeaturesComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Employee; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return User; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return UserLogin; });
 var Employee = (function () {
     function Employee() {
     }
@@ -1931,6 +1973,12 @@ var User = (function () {
     function User() {
     }
     return User;
+}());
+
+var UserLogin = (function () {
+    function UserLogin() {
+    }
+    return UserLogin;
 }());
 
 
@@ -2065,11 +2113,12 @@ var DataService = (function () {
             console.log(_this.employeeList);
         });
     };
-    DataService.prototype.postLoggin = function (emp) {
-        var body = JSON.stringify(emp);
+    // POST LOGIN
+    DataService.prototype.postLogin = function (email) {
+        var body = JSON.stringify(email);
         var headerOptions = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
         var requestOptions = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["e" /* RequestOptions */]({ method: __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestMethod */].Post, headers: headerOptions });
-        return this.http.post('https://djangular-rest.herokuapp.com/api/accounts/login/', body, requestOptions).map(function (x) { return x.json(); });
+        return this.http.post('http://127.0.0.1:8000/api/usuario/' + email, body, requestOptions).map(function (x) { return x.json(); });
     };
     // ADD, POST METHOD
     DataService.prototype.postEmployee = function (emp) {
@@ -2233,7 +2282,7 @@ var StaticModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__app_shared__["a" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_2__static_routing_module__["a" /* StaticRoutingModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["f" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["b" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_7__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */]],
             declarations: [__WEBPACK_IMPORTED_MODULE_3__about_about_component__["a" /* AboutComponent */], __WEBPACK_IMPORTED_MODULE_4__features_features_component__["a" /* FeaturesComponent */], __WEBPACK_IMPORTED_MODULE_10__static_dialog_add_add_component__["a" /* AddComponent */], __WEBPACK_IMPORTED_MODULE_11__dialog_loggin_loggin_component__["a" /* LogginComponent */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_9__static_services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__static_models_models__["b" /* User */],]
+            providers: [__WEBPACK_IMPORTED_MODULE_9__static_services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__static_models_models__["b" /* User */], __WEBPACK_IMPORTED_MODULE_5__static_models_models__["c" /* UserLogin */]]
         })
     ], StaticModule);
     return StaticModule;
