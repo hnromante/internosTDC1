@@ -7,7 +7,7 @@ from rest_framework.serializers import (
     HyperlinkedIdentityField,
     ModelSerializer,
     SerializerMethodField,
-    ValidationError,
+    ValidationError,    
     EmailField,
     CharField,
     ValidationError
@@ -21,7 +21,7 @@ class UsuarioSerializer(ModelSerializer):
 
 
 class UsuarioCrearActualizarSerializer(ModelSerializer):
-    #email = EmailField(label = 'Email Address')
+    # email = EmailField(label = 'Email')
     #email2 = EmailField(label = 'Confirm Email')
     class Meta:
         model = User
@@ -32,8 +32,22 @@ class UsuarioCrearActualizarSerializer(ModelSerializer):
             'password'
         ]
     #Aun sin validar
-    def validar(self, data):
-        pass
+    def validate(self, data):
+        return data
+
+    def create(self, validated_data):
+        username = validated_data['username']
+        first_name = validated_data['first_name']
+        email = validated_data['email']
+        password = validated_data['password']
+        user_obj = User(
+            username = username,
+            email = email,
+            first_name = first_name
+        )
+        user_obj.set_password(password)
+        user_obj.save()
+        return validated_data
 
 
 class UsuarioListarSerializer(ModelSerializer):
