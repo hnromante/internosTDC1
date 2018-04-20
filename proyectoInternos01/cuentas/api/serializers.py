@@ -29,8 +29,7 @@ class UsuarioCrearActualizarSerializer(ModelSerializer):
             'username',
             'first_name',
             'email',
-            'password',
-            'auth_token'
+            'password'
         ]
     #Aun sin validar
     def validar(self, data):

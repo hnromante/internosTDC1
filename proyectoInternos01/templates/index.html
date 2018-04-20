@@ -1,106 +1,109 @@
-<!-- <center><h1><a href="api/">API</a></h1></center>-->
-{% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>DjAngular CRUD</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  <style type="text/css">
-    body, html {
-      height: 100%;
-    }
-    .app-loading {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-    .app-loading .spinner {
-      height: 200px;
-      width: 200px;
-      animation: rotate 2s linear infinite;
-      transform-origin: center center;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    .app-loading .spinner .path {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-      animation: dash 1.5s ease-in-out infinite;
-      stroke-linecap: round;
-      stroke: #ddd;
-    }
-    @keyframes rotate {
-      100% {
-        transform: rotate(360deg);
+  <head>
+      <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>USUARIOS</title>
+    <!-- Material Icon CDN -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+    <!-- Used as an example only to position the footer at the end of the page.
+    You can delete these styles or move it to your custom css file -->
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        }
+      main {
+        flex: 1 0 auto;
       }
-    }
-    @keyframes dash {
-      0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-      }
-      50% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -35px;
-      }
-      100% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -124px;
-      }
-    }
-  </style>
-<style>
-      
-  .logo {
-    width: 100px;
-    height: 100px;
-    background: url(./static/ang/assets/logo.png) center center no-repeat;
-  }
-</style>
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="cyan">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" class="brand-logo">USUARIOS</a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Logout</a></li>
+              <li><a href="#">Registrar</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Logout</a></li>
+              <li><a href="#">Registrar</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m4 l6 offset 2">
+              <p>REGISTRAR</p>
+              <form  method="POST" action="http://127.0.0.1:8000/api/usuarios/registrar/">
 
+                <div class="input-field col s12 l6">
+                  <input type="text" id="username" name="username" class="validate" placeholder="Nombre de usuario" >
+                  
+                </div>
 
-<body>
-  <anms-root>
-    <div class="app-loading">
-      <div class="logo"></div>
-      <svg class="spinner" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-      </svg>
-    </div>
-  </anms-root>
+                <div class="input-field col s12 l6">
+                    <input type="text" id="first_name" name="first_name" class="validate" placeholder="Nombre" >
+                    
+                </div>
 
-  
+                <div class="input-field col s12 l6">
+                    <input type="text" id="last_name" name="last_name" class="validate" placeholder="Apellido" >
+                    
+                </div>
 
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <div class="input-field col s12">
+                  <input type="email" id="email" name="email" class="validate"placeholder="Email"  >
+                  
+                </div>
 
+                <div class="input-field col s12 l6">
+                    <input type="password" id="password" name="password" class="validate" placeholder="Contraseña" >
+                    
+                </div>
+                <div class="input-field col s12 l6">
+                    <input class="btn green" type="submit" value="Registrar">
+                    
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+    </main>
+    
+    <!-- jQuery CDN -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize JS CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+      $('document').ready(function(){
+        console.log("DOCUMENTO LISTO");
 
+        $(".button-collapse").sideNav();
 
+        $('form').on('submit', function(){
+          event.preventDefault();
+          console.log( $('#username').val() );
+          console.log( $('#password').val() );
 
-    <script type="text/javascript" src="{% static 'ang/inline.bundle.js' %}"></script>
-    <script type="text/javascript" src="{% static 'ang/polyfills.bundle.js' %}"></script>
-    <script type="text/javascript" src="{% static 'ang/vendor.bundle.js' %}"></script>
-    <script type="text/javascript" src="{% static 'ang/main.bundle.js' %}"></script>
-    <script type="text/javascript" src="{% static 'ang/styles.bundle.js' %}"></script>
-  
-
-
-</body>
+          var 
+        })
+      });
+    </script>
+  </body>
 </html>

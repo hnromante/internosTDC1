@@ -2,12 +2,7 @@
 curl -X POST -d "username=usuarioApi&password=password123" http://127.0.0.1:8000/api/usuarios/auth-token/
 6bc23b01492f21c41845162d03f5057ade6b757d
 
-
-
 PASAR TOKEN : 
-curl -X GET http://127.0.0.1:8000/api/usuarios/ -H 'Authorization: Token 6bc23b01492f21c41845162d03f5057ade6b757d'
-
-
 
 HTTPIE : http http://127.0.0.1:8000/api/usuarios/auth-token/ username='apitester' password='password123'
        : http://127.0.0.1:8000/api/usuarios/username/ 
